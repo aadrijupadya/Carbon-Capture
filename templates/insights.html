@@ -1,0 +1,117 @@
+{% extends 'login.html' %} {% block title %}Results Insights{% endblock %} {% block nav %}
+<ul class="navbar-nav">
+    <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="/home">Home</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/logbook">Logbook</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/insights">Insights</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link disabled">Resources</a>
+    </li>
+</ul>
+{% endblock %} {% block content %}
+
+<div class="row mb-2">
+    <div class="col">
+        <div class="card">
+            <div class="card-body">
+                Your total carbon footprint this month was {{mydata['Total']}} kilograms of carbon dioxide.
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row justify-content-center">
+    <div class="col">
+        <div class="card" style="width: 18rem;">
+            <div class="card-header">
+                Transportation
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Car: {{mydata['Car']}} kg</li>
+                <li class="list-group-item">Bus: {{mydata['Bus']}} kg</li>
+                <li class="list-group-item">Train: {{mydata['Train']}} kg</li>
+                <li class="list-group-item">Total: {{mydata['TotalTransport']}} kg</li>
+            </ul>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card" style="width: 18rem;">
+            <div class="card-header">
+                Diet
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Meat: {{mydata['Meat']}} kg</li>
+                <li class="list-group-item">Dairy: kg</li>
+                <li class="list-group-item">Total: {{mydata['Meat']}} kg</li>
+            </ul>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card" style="width: 18rem;">
+            <div class="card-header">
+                Household Energy Consumption (Family of {{mydata['FamilySize']}})
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Electricity: {{mydata['Energy']}} kg</li>
+                <li class="list-group-item">Gas: {{mydata['Gas']}} kg</li>
+                <li class="list-group-item">Total: {{mydata['TotalEnergy']}} kg</li>
+            </ul>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card" style="width: 18rem;">
+            <div class="card-header">
+                Personal Consumption
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Personal Consumption: ${{mydata['PersonalSpending']}}</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-3">
+    <div class="col">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <p class="card-text">Transportation: According to the EPA, the average vehicle fuel economy is 21.6 mpg with the average mileage being 11,400 miles per year, with about 0.0089 tons of carbon dioxide emission per gallon of gasoline. Sustainable transportation,
+                    such as buses and transit rails produce nearly the same emissions (0.06 kg of CO2 per passenger-mile and 0.12 kg of CO2 per passenger-mile respectively), while transporting more people, which can potentially save about 6,000 tons of
+                    CO2 emissions yearly. In the future, we hope we can link specific information about public transportation based on user inputted location and zip code.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <p class="card-text">Diet: Animal products contribute to 58 percent of agricultural emissions, with half of these emissions coming from beef and lamb. Moving to a more vegetarian based diet, or cutting beef and lamb from your diet can save AT LEAST 725 kg
+                    of CO2/year (Kim & Neff, 2009). Possibly link resources.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <p class="card-text">Energy consumption: The average annual emissions from electricity per household per person amounts to about 183.75 kg/month/person, and 105 kg/month/person for natural gas. In the future, we hope to add more insights about other types
+                    of renewable/sustainable energy, as well as link to resources such as solarcity, etc, for users to explore possible solar options that can be financially sustainable for them.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <p class="card-text">Personal consumption: This is to cover Goods & Services, e.g. clothing, furniture, appliances, entertainment, personal care, health care and education. According to the US EPA (2014): average CO2 equivalent (CO2e) generated from waste
+                    per person per year is 285 metric tons / year, while the average CO2 equivalent for someone who recycles (metal, plastic, glass, newspaper, magazines) is 0.1819 metric tons / year. I am assuming that most Americans don't recycle.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
